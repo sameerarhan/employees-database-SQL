@@ -1,5 +1,11 @@
-<<<<<<< HEAD
--------------------------------------------AND OR OPERATOR------------------------------------------------------------------
+-- ├── 02_operators/
+-- │ ├── 01_logical_operators
+-- │ ├── 02_comparison_operators
+-- │ ├── 03_between_in_notin_operators
+-- │ └── 04_like_operator
+
+
+------------------------------------------- (02) AND OR LOGICAL OPERATOR------------------------------------------------------------------
 
 -- 1. Query to display the employee name if the employee is working in department number 20 and earning a salary more than 1500:
 SELECT first_name AS name
@@ -197,7 +203,6 @@ WHERE department_id IN (10,30) AND hire_date BETWEEN '01-01-1981' AND '31-12-198
 SELECT CONCAT(first_name,' ',last_name),hire_date
 FROM employees
 WHERE hire_date BETWEEN '01-01-1981' AND '01-01-1987' AND job_id IN ('FI_MGR,FI_ACCOUNT');
-=======
 -------------------------------------------AND OR OPERATOR------------------------------------------------------------------
 
 -- 1. Query to display the employee name if the employee is working in department number 20 and earning a salary more than 1500:
@@ -397,4 +402,3 @@ WHERE department_id IN (10,30) AND hire_date BETWEEN '01-01-1981' AND '31-12-198
 SELECT CONCAT(first_name,' ',last_name),hire_date
 FROM employees
 WHERE hire_date BETWEEN '01-01-1981' AND '01-01-1987' AND job_id IN ('FI_MGR,FI_ACCOUNT');
->>>>>>> bb0bdc15d2579e94733e327775ba60115b2a2bca
