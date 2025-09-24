@@ -1,4 +1,15 @@
--------------------------------------ASSIGNMENT ON MULTIROW  FUNCTIONS----------------------------------------------
+├── 04_aggregations/
+│ ├── 01_aggregate_functions.sql
+│ ├── 02_group_by.sql
+│ ├── 03_having.sql
+│ └── 04_nested_aggregates.sql
+
+
+
+
+
+
+------------------------------------- (01) AGGREGATE /MULTIROW  FUNCTIONS----------------------------------------------
 -- 1. Query to Display the maximum salary from the Employees table:
 SELECT MAX(salary) AS maximum_salary
 FROM employees;
