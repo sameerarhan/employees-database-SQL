@@ -69,7 +69,7 @@ FROM employees
 WHERE first_name LIKE '%ll%' OR last_name LIKE '%ll%';
 
 -- 16. Query to display number of distinct departments present in the employee table:
-SELECT COUNT(*) AS no_of_departments,DISTINCT (department_id)
+SELECT COUNT(DISTINCT (department_id)) AS no_of_departments
 FROM employees;
 
 SELECT COUNT(DISTINCT(department_id)) AS no_of_departments
