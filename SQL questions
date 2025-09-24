@@ -1,0 +1,19 @@
+                                          Questions on WHERE clause
+1. Query to display all employee names only if they are working in Department 20 
+2. Query to display employee name from employee table if they are working in Department 40 
+3. Query to display the salary of the employee whose name is Neena 
+4. Query to display the annual salary of the employee whose name is Michael 
+5. Query to display the name of the employee who is working as a clerk 
+6. Query to display the salary of the employee who is working as an accountant 
+7. Query to display details of the employee who earns more than 2000 
+8. Query to display details of the employee whose name is Jennifer 
+9. Query to display details of the employee who was hired after 06 May 2023 
+10. Query to display name and salary along with annual salary if the annual salary is more than 12,000 
+11. Query to display employee numbers of employees working in Department 30 
+12. Query to display employee name and hire date if they were hired before 2017 
+13. Query to display details of the employee working as an assistant 
+14. Query to display name and salary of employees who earn a commission of Rs. 0.3 
+15. Query to display details of employees having a commission of Rs. 0.25 
+16. Query to display employee numbers of employees hired before the year 2005 
+17. Query to display details of the employees working as a salesman 
+18. Query to display details of employees earning salary more than Rs. 2000 per month
