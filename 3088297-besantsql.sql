@@ -1985,7 +1985,7 @@ JOIN departments dep
 ON dep.department_id = emp.department_id
 JOIN departments mgr_dep
 ON mgr_dep.department_id = mgr.department_id
-AND emp.salary>(SELECT salary FROM employees WHERE first_name='Bruce')
+WHERE emp.salary>(SELECT salary FROM employees WHERE first_name='Bruce')
 AND mgr.salary>(SELECT salary FROM employees WHERE first_name = 'Sigal');
 
 SELECT 
