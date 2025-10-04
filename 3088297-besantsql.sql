@@ -2003,7 +2003,7 @@ and e2.salary > (select salary
                  where first_name='Hazel')
 and d1.location_id in (1700,1200);
 
-FROM employees emp 
+FROM employees emp,employees mgr,
 JOIN employees mgr 
 ON emp.manager_id = mgr.employee_id
 
