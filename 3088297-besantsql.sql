@@ -1992,6 +1992,17 @@ AND mgr.salary>(SELECT salary FROM employees WHERE first_name = 'Sigal');
 -- 22. Write a query to display employee name, manager's name, and their location IDs if employee working in department number 10 or 30 and manager earning more than Hazel and employee working in location ID 1700 or 1200.
 
 
+select e1.first_name "Employee Name", e2.first_name "Manager Name", d1.location_id "Employee Location", d2.location_id "Manager Location"
+from employees e1, employees e2, departments d1, departments d2
+where e1.manager_id = e2.employee_id
+and e1.department_id = d1.department_id
+and e2.department_id = d2.department_id
+and e1.department_id in (10,20)
+and e2.salary > (select salary
+                 from employees
+                 where first_name='Hazel')
+and d1.location_id in (1700,1200);
+
 FROM employees emp 
 JOIN employees mgr 
 ON emp.manager_id = mgr.employee_id
