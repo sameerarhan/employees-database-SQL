@@ -1,4 +1,10 @@
-----------------------------------------SUB QUERIES-------------------------------------------------
+├── 05_subqueries_ctes/
+│   ├── 01_subqueries.sql
+│   ├── 02_ctes.sql
+│   └── 03_recursive_ctes.sql
+
+-------------------------------------------------------------------------------------------------------------------
+  --------------------------------------    (01) SUB QUERIES       -------------------------------------------------
 -- 1. write a query to display Employees earning more than Nancy
 SELECT first_name
 FROM employees
@@ -181,7 +187,7 @@ WHERE first_name='Anthony') AND salary*12 <
 FROM employees
 WHERE first_name='Gerald');
 
-----------------------------------SUB QUERIES USING ANOTHER TABLE-------------------------------------------------
+----------------------------------       (01)(a)SUB QUERIES USING ANOTHER TABLE           -------------------------------------------------
 -- 1. Write a query to display department name and location ID of the employee whose name is Alexander
 SELECT department_name,location_id
 FROM departments
@@ -413,3 +419,7 @@ FROM employees
 WHERE commission_pct =
 (SELECT MAX(commission_pct) AS maximum_commission
 FROM employees);
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------            (02) CTE             -------------------------------------------------------------------------
+
