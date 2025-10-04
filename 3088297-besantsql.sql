@@ -1977,7 +1977,7 @@ AND mgr.department_id = 20;
 
 -- 21. Write a query to display employee name, manager's name, and their department names if employee earning more than 'Bruce'and manager earning more than 'Sigal'.
 
-SELECT emp.first_name,mgr.first_name,dep.department_name AS 
+SELECT emp.first_name,mgr.first_name,dep.department_name AS emp_dept_name,mgr_dep.
 FROM employees emp
 JOIN employees mgr
 ON emp.manager_id = mgr.employee_id
