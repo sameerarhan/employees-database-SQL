@@ -138,3 +138,202 @@ WHERE emp.employee_id IN (198,162) AND dep.location_id IN (1500,2500);
 
 -----------------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------      (02) LEFT JOIN     ---------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------           (04) SELF JOIN               ----------------------------------------------
+-- 
+-- Q1. Write a query to display employee name and manager names from employee table
+SELECT emp.first_name AS employee_name,mgr.first_name AS manager_name
+FROM employees emp
+JOIN employees mgr
+ON emp.manager_id = mgr.employee_id;
+
+-- Q2. Write a query to display name of the employee and his manager name if employee is working as purchasing clerk
+SELECT emp.first_name AS employee_name,mgr.first_name AS manager_name
+FROM employees emp
+JOIN employees mgr
+ON emp.manager_id = mgr.employee_id   -- links each employee to their manager
+AND emp.job_id = 'PU_CLERK';
+
+-- Q3. Write a query to display name of the employee and manager's designation if manager works in department 10 or 20
+SELECT emp.first_name AS employee_name,mgr.job_id AS manager_job
+FROM employees emp
+JOIN employees mgr             -- links each employee to their manager
+ON emp.manager_id = mgr.employee_id 
+AND mgr.department_id IN (10,20);
+
+-- Q4. Write a query to display name of the employee and manager's salary if employee and manager both earn more than 5000
+SELECT emp.first_name AS employee_name,mgr.salary AS manager_salary
+FROM employees emp
+JOIN employees mgr             -- links each employee to their manager
+ON emp.manager_id = mgr.employee_id 
+AND emp.salary>5000 AND mgr.salary > 5000;
+
+-- 5. Write a query to display employee name and manager's hire date if employee was hired before 2012
+SELECT emp.first_name AS employee_name,mgr.hire_date AS manager_hired_date
+FROM employees emp
+JOIN employees mgr             -- links each employee to their manager
+ON emp.manager_id = mgr.employee_id 
+AND emp.hire_date <'2012-01-01';
+
+-- 6. Write a query to display employee name and manager commission if employee working as a salesman and manager works in department no. 90
+SELECT emp.first_name AS employee_name,mgr.commission_pct AS managers_commission
+FROM employees emp
+JOIN employees mgr             -- links each employee to their manager
+ON emp.manager_id = mgr.employee_id 
+AND mgr.department_id = 90 
+AND emp.job_id = 'SA_MAN';
+
+-- 7. Write a query to display employee name, manager name, and their salaries if employee earns more than their manager
+SELECT emp.first_name AS employee_name,mgr.first_name AS manager_name
+FROM employees emp
+JOIN employees mgr             -- links each employee to their manager
+ON emp.manager_id = mgr.employee_id 
+AND emp.salary > mgr.salary;
+
+-- 8. Write a query to display employee name and hire date, manager name and manager hire date if manager was hired before employee
+SELECT emp.first_name AS employee_name,emp.hire_date AS employee_hiredate,mgr.first_name AS manager_name,mgr.hire_date AS managers_hire_date 
+FROM employees emp
+JOIN employees mgr             -- links each employee to their manager
+ON emp.manager_id = mgr.employee_id 
+AND mgr.hire_date < emp.hire_date;
+
+
+-- 9. Write a query to display employee name, manager name if both are working in the same job
+SELECT emp.first_name AS employee_name,mgr.first_name AS manager_name,emp.job_id AS employee_job,mgr.job_id AS manager_job
+FROM employees emp
+JOIN employees mgr             -- links each employee to their manager
+ON emp.manager_id = mgr.employee_id 
+AND mgr.job_id = emp.job_id;
+
+-- 10. Write a query to display employee name, manager name,manager job_id if manager is working as actual manager
+SELECT emp.first_name AS employee_name,mgr.first_name AS manager_name,mgr.job_id AS manager_job 
+FROM employees emp
+JOIN employees mgr             -- links each employee to their manager
+ON emp.manager_id = mgr.employee_id 
+AND mgr.manager_id = emp.manager_id;
+
+SELECT emp.first_name AS employee_name,
+       mgr.first_name AS manager_name,
+       mgr.job_id AS manager_job
+FROM employees emp
+JOIN employees mgr
+  ON emp.manager_id = mgr.employee_id
+WHERE mgr.employee_id IN (
+                            SELECT DISTINCT manager_id 
+                            FROM employees 
+                            WHERE manager_id IS NOT NULL
+                        )
+;
+
+
+-- 11. Write a query to display employee name, manager name, along with their annual salaries if employee works in department no. 10 and 20 and manager salary is greater than employee salary
+SELECT emp.first_name AS employee_name,mgr.first_name AS manager_name,mgr.salary*12 AS manager_annual_salary,emp.salary*12 AS employee_annual_salary
+FROM employees emp
+JOIN employees mgr             -- links each employee to their manager
+ON emp.manager_id = mgr.employee_id 
+AND emp.department_id IN (10,20)
+AND mgr.salary > emp.salary;
+
+
+-- 12. Write a query to display employee name and manager designation for all the employees
+SELECT emp.first_name AS employee_name,mgr.job_id AS manager_job 
+FROM employees emp
+JOIN employees mgr             -- links each employee to their manager
+ON emp.manager_id = mgr.employee_id ;
+
+-- 13. Write a query to display employee name, manager salary for all the employees if manager salary ends with 000
+SELECT emp.first_name AS employee_name,mgr.salary AS manager_salary 
+FROM employees emp
+JOIN employees mgr             -- links each employee to their manager
+ON emp.manager_id = mgr.employee_id
+AND mgr.salary LIKE '%000';
+
+-- 14. Write a query to display employee name and department name
+SELECT emp.first_name AS employee_name,dep.department_name  
+FROM employees emp
+JOIN departments dep             -- links each employee to their manager
+ON emp.department_id = dep.department_id;
+
+-- 15. Write a query to display employees and manager name
+SELECT emp.first_name AS employee_name,mgr.first_name AS manager_name
+FROM employees emp 
+JOIN employees mgr
+ON emp.manager_id = mgr.employee_id;
+
+-- 15(a). Write a query to display employees and manager name using Subquery
+
+SELECT e.first_name,
+    (
+     SELECT m.first_name 
+     FROM employees m
+     WHERE m.employee_id = e.manager_id
+    ) AS manager_name
+FROM employees e;
+
+-- 16. Write a query to display employees name, managers name, and employees department name
+SELECT e.first_name AS employee_name,m.first_name AS manager_name,d.department_name AS employee_dept_name
+FROM employees e 
+JOIN employees m
+ON e.manager_id = m.employee_id
+INNER JOIN departments d
+ON e.department_id = d.department_id;
+
+-- 16(a) Write a query to display employees name, managers name, and employees department name using subqueries
+SELECT e.first_name AS employee_name,
+
+        (
+            SELECT m.first_name 
+            FROM employees m
+            WHERE e.manager_id = m.employee_id
+        ) AS manager_name,
+        (
+            SELECT d.department_name 
+            FROM departments d 
+            WHERE d.department_id = e.department_id
+        ) AS emp_dept_name
+FROM employees e;
+
+-- 17. Write a query to display employee name, manager name, employee's department name, and manager's department name.
+SELECT emp.first_name AS emp_name,mgr.first_name AS manager_name,d1.department_name AS emp_dept_name,d2.department_name AS mgr_dept_name
+FROM employees emp
+JOIN employees mgr
+ON emp.manager_id = mgr.employee_id
+JOIN departments d1
+ON emp.department_id = d1.department_id
+JOIN departments d2
+ON mgr.department_id = d2.department_id;
+
+-- 18. Write a query to display employee name, manager name, employee's department name, and manager's department name if employee salary is more than 2000 and manager is working in department number 20.
+SELECT emp.first_name AS emp_name,mgr.first_name AS manager_name,d1.department_name AS emp_dept_name,d2.department_name AS mgr_dept_name
+FROM employees emp
+JOIN employees mgr
+ON emp.manager_id = mgr.employee_id
+JOIN departments d1
+ON emp.department_id = d1.department_id
+JOIN departments d2
+ON mgr.department_id = d2.department_id 
+AND emp.salary>2000
+AND mgr.department_id = 20;
+
+-- 19. Write a query to display employee name, manager name, and manager's manager name.
+SELECT emp.first_name AS emp_name,mgr.first_name AS manager_name,mgrsmgr.first_name AS managers_manager_name
+FROM employees emp
+JOIN employees mgr
+ON emp.manager_id = mgr.employee_id
+JOIN employees mgrsmgr
+ON mgr.manager_id = mgrsmgr.employee_id;
