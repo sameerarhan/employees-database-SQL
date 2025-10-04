@@ -1977,6 +1977,8 @@ AND mgr.department_id = 20;
 
 -- 21. Write a query to display employee name, manager's name, and their department names if employee earning more than 'Bruce'and manager earning more than 'Sigal'.
 
+
+FROM 
 -- 22. Write a query to display employee name, manager's name, and their location IDs if employee working in department number 10 or 30 and manager earning more than Hazel and employee working in location ID 1700 or 1200.
 
 -- 23. Write a query to display employee name, manager's name, and manager's manager name, along with their location IDs, if the employee was hired before Guy and the manager is working in the Accounting or Finance department, and the manager's manager is earning more than Lex.
