@@ -1984,7 +1984,7 @@ ON emp.manager_id = mgr.employee_id
 JOIN deparments dep 
 ON dep.department_id = emp.department_id
 JOIN departments mgr_dep
-ON mgr_dep = 
+ON mgr_dep.
 
 
 -- 22. Write a query to display employee name, manager's name, and their location IDs if employee working in department number 10 or 30 and manager earning more than Hazel and employee working in location ID 1700 or 1200.
