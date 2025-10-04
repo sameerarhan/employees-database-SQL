@@ -1981,7 +1981,7 @@ SELECT emp.first_name,mgr.first_name,dep.department_name AS emp_dept_name,mgr_de
 FROM employees emp
 JOIN employees mgr
 ON emp.manager_id = mgr.employee_id
-JOIN deparments dep 
+JOIN departments dep 
 ON dep.department_id = emp.department_id
 JOIN departments mgr_dep
 ON mgr_dep.department_id = mgr.department_id
