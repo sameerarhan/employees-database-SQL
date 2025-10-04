@@ -5,6 +5,5 @@
   "3110577": "03_Joins.sql",
   "3110578": "04_aggregations.sql",
   "3110579": "06_sub_queries.sql",
-  "3110580": "group_by_having.sql",
   "3110581": "single_row_functions.sql"
 }
