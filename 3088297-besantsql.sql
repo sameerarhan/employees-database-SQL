@@ -1994,7 +1994,7 @@ AND mgr.salary>(SELECT salary FROM employees WHERE first_name = 'Sigal');
 
 FROM employees emp 
 JOIN employees mgr 
-ON emp.manager_id = 
+ON emp.manager_id = mgr.employee_id
 
 -- 23. Write a query to display employee name, manager's name, and manager's manager name, along with their location IDs, if the employee was hired before Guy and the manager is working in the Accounting or Finance department, and the manager's manager is earning more than Lex.
 
