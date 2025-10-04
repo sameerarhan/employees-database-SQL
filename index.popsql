@@ -1,0 +1,9 @@
+{
+  "3088297": "3088297-besantsql.sql",
+  "3110575": "01_create_tables_basic_queries.sql",
+  "3110576": "02_operators.sql",
+  "3110577": "03_Joins.sql",
+  "3110578": "04_aggregations.sql",
+  "3110581": "single_row_functions.sql",
+  "3112336": "05_sub_queries.sql"
+}
