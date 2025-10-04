@@ -1996,7 +1996,7 @@ SELECT
 FROM employees emp
 JOIN employees mgr
     ON emp.manager_id = mgr.employee_id
-JOIN departments dep 
+JOIN departments dep
     ON dep.department_id = emp.department_id
 JOIN departments mgr_dep
     ON mgr_dep.department_id = mgr.department_id
