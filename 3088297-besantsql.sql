@@ -2005,7 +2005,7 @@ and d1.location_id in (1700,1200);
 
 FROM employees emp,employees mgr,departments emp_dep,departments mgr_dep
 ON emp.manager_id = mgr.employee_id
-AND emp.depertment_id 
+AND emp.department_id = 
 
 -- 23. Write a query to display employee name, manager's name, and manager's manager name, along with their location IDs, if the employee was hired before Guy and the manager is working in the Accounting or Finance department, and the manager's manager is earning more than Lex.
 
