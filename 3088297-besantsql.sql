@@ -2093,7 +2093,7 @@ WHERE slno IN (1,3,5,8);
 SELECT e.first_name,d.department_id
 FROM employees e 
 LEFT JOIN departments d 
-ON e.employee_id = d.department_id;
+ON e.department_id = d.department_id
 AND d.department_id IS NULL;
 
 SELECT first_name,department_id
