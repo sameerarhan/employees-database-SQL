@@ -1485,7 +1485,7 @@ FROM
 FROM
 (SELECT * FROM employees))
 WHERE sl_no IN (1,3,5,8);
-
+SELECT first_name,hire_date
             (
              SELECT rownum AS slno,*
              FROM employees
