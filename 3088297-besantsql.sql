@@ -1485,13 +1485,14 @@ FROM
 FROM
 (SELECT * FROM employees))
 WHERE sl_no IN (1,3,5,8);
+
 SELECT first_name,hire_date 
         FROM 
             (
              SELECT rownum AS slno,*
              FROM employees
             )
-WHERE slno=
+WHERE slno IN (1,3,5,)
 -- 3(b) Query to display employee name and hire_Date of records at 1st, 3rd, 5th, and 8th positions using ROW_NUMBER() Function :
 SELECT first_name,hire_date
 FROM(
