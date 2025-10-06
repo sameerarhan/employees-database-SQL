@@ -2090,7 +2090,7 @@ SELECT first_name,hire_date
             )
 WHERE slno IN (1,3,5,8);
 
-SELECT 
+SELECT e.first_name
 FROM employees e 
 LEFT JOIN departments d 
 ON e.employee_id = d.department_id 
