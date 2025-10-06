@@ -2096,4 +2096,5 @@ LEFT JOIN departments d
 ON e.employee_id = d.department_id 
 AND d.department_id IS NULL;
 
-SELECT * FROM employees
+SELECT * FROM employees;
+SELECT * FROM departments;
