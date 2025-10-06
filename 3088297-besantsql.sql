@@ -2097,7 +2097,8 @@ ON e.employee_id = d.department_id
 AND d.department_id IS NULL;
 
 SELECT first_name 
-FROM me
+FROM employees
+WHERE department_id 
 
 SELECT * FROM employees;
 SELECT * FROM departments;
