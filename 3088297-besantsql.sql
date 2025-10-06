@@ -2094,7 +2094,7 @@ SELECT e.first_name,d.department_id
 FROM employees e 
 LEFT JOIN departments d 
 ON e.department_id = d.department_id
-AND d.department_id IS NULL;
+WHERE d.department_id IS NULL;
 
 SELECT first_name,department_id
 FROM employees
